@@ -25,7 +25,7 @@ npm i @fcoded/adonis-hashids or  yarn add @fcoded/adonis-hashids
 node ace configure @fcoded/adonis-hashids
 ```
 
-The configuration file is in `config/hashids.ts`. The default `salt` will be the project name, the default `minLength` is 12 and it uses the default alphabet from the [hashids.js](https://github.com/niieani/hashids.js) package.
+The configuration file is in `config/hashids.ts`. The default `salt` will be the project name, the default `minLength` is 12 and it uses the default `alphabet` from the [hashids.js](https://github.com/niieani/hashids.js) package.
 
 ## **Using the Hashids Mixin**
 
