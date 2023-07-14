@@ -39,8 +39,6 @@ test.group('LucidHashIds', (group) => {
 
     const testData = await TestModel.create({ name: 'test' })
 
-    console.log(testData.hashid)
-
     assert.exists(testData.hashid)
     assert.isString(testData.hashid)
     assert.isNotEmpty(testData.hashid)
