@@ -38,7 +38,7 @@ export async function setup() {
     await db.schema.createTable('tests', (table) => {
       table.increments('id')
       table.string('name')
-      table.string('hashid')
+      table.string('hashid').nullable()
       table.timestamps(true)
     })
   }

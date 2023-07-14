@@ -32,7 +32,7 @@ test.group('LucidHashIds', (group) => {
       public name: string
 
       @column()
-      public hashid: string
+      public hashid: string | null
     }
 
     TestModel.boot()
@@ -44,6 +44,6 @@ test.group('LucidHashIds', (group) => {
     assert.exists(testData.hashid)
     assert.isString(testData.hashid)
     assert.isNotEmpty(testData.hashid)
-    assert.equal(TestModel.getId(testData.hashid), testData.id)
+    assert.equal(TestModel.getId(testData.hashid!), testData.id)
   })
 })

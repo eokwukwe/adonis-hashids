@@ -45,7 +45,7 @@ export default function getLucidHashIdsMixin(config: HashidsConfig) {
       }
 
       @column()
-      public hashid: string
+      public hashid: string | null
     }
 
     return ModelWithHashId

@@ -33,7 +33,7 @@ declare module '@ioc:Adonis/Addons/LucidHashIds' {
       $hashidsInstance(): Hashids
 
       new (...args: any[]): {
-        hashid: string
+        hashid: string | null
       }
     }
   }

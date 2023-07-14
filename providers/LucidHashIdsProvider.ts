@@ -9,9 +9,11 @@ export default class SkeletonProvider {
     const config = this.app.container.use('Adonis/Core/Config').get('hashids', {})
 
     this.app.container.singleton('Adonis/Addons/LucidHashIds', () => {
-      const getLucidHashIdsMixin = require('../src/LucidHashIdsMixin')
+      const getLucidHashIdsMixin = require('../src/LucidHashIdsMixin').default
 
-      return { LucidHashIds: getLucidHashIdsMixin(config) }
+      const LucidHashIds = getLucidHashIdsMixin(config)
+
+      return { LucidHashIds }
     })
   }
 }

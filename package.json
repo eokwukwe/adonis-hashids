@@ -2,7 +2,7 @@
   "name": "@fcoded/adonis-hashids",
   "version": "1.0.0",
   "description": "A package to generate YouTube-like IDs for AdonisJS Lucid models",
-  "main": "build/providers/AdonisHashidsProvider.js",
+  "main": "build/providers/LucidHashIdsProvider.js",
   "scripts": {
     "mrm": "mrm --preset=@adonisjs/mrm-preset",
     "test": "c8 -r html node -r ts-node/register/transpile-only bin/test.ts",
@@ -74,7 +74,8 @@
     "typescript": "^5.1.6"
   },
   "peerDependencies": {
-    "@adonisjs/core": "^5.8.4"
+    "@adonisjs/core": "^5.8.4",
+    "@adonisjs/lucid": "^18.4.0"
   },
   "mrmConfig": {
     "core": false,
@@ -139,19 +140,11 @@
     "providers": [
       "@fcoded/adonis-hashids"
     ],
-    "instructions": "./build/instructions.js",
-    "instructionsMd": "./build/instructions.md",
     "templates": {
       "basePath": "./build/templates",
       "config": [
         {
           "src": "config/hashids.txt",
-          "dest": "hashids"
-        }
-      ],
-      "contracts": [
-        {
-          "src": "contracts/hashids.txt",
           "dest": "hashids"
         }
       ]
