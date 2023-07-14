@@ -1,6 +1,6 @@
 {
   "name": "@fcoded/adonis-hashids",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A package to generate YouTube-like IDs for AdonisJS Lucid models",
   "main": "build/providers/LucidHashIdsProvider.js",
   "engines": {
