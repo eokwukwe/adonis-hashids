@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         lib: ['sqlite']
-        node-version: [14, 16, 18]
+        node-version: [16, 18]
 
     steps:
       - name: Checkout
