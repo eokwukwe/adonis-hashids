@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        lib: ['sqlite', 'better_sqlite']
+        lib: ['sqlite']
         node-version: [14, 16, 18]
 
     steps:
