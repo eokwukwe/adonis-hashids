@@ -1,1 +1,1 @@
-/// <reference path="./skeleton.ts" />
+/// <reference path="./hashids.ts" />
