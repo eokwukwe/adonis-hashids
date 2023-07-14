@@ -49,11 +49,11 @@ The mixin will update the `hashid` column after the recorded is created using th
 [typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
 [typescript-url]:  "typescript"
 
-[npm-image]: https://img.shields.io/npm/v/@fcodes/adonis-hashids/latest.svg?style=for-the-badge&logo=npm
-[npm-url]: https://npmjs.org/package/@fcodes/adonis-hashids/v/latest "npm"
+[npm-image]: https://img.shields.io/npm/v/@fcoded/adonis-hashids/latest.svg?style=for-the-badge&logo=npm
+[npm-url]: https://npmjs.org/package/@fcoded/adonis-hashids/v/latest "npm"
 
-[license-image]: https://img.shields.io/npm/l/@fcodes/adonis-hashids?color=blueviolet&style=for-the-badge
+[license-image]: https://img.shields.io/npm/l/@fcoded/adonis-hashids?color=blueviolet&style=for-the-badge
 [license-url]: LICENSE.md "license"
 
-[download-image]: https://img.shields.io/npm/dm/%40fcodes/adonis-hashids?style=for-the-badge&logo=npm&label=Downloads
+[download-image]: https://img.shields.io/npm/dm/%40fcoded/adonis-hashids?style=for-the-badge&logo=npm&label=Downloads
 [download-url]: "download"
