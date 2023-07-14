@@ -74,6 +74,7 @@
     "typescript": "^5.1.6"
   },
   "peerDependencies": {
+    "hashids": "^2.3.0",
     "@adonisjs/core": "^5.8.4",
     "@adonisjs/lucid": "^18.4.0"
   },
@@ -149,8 +150,5 @@
         }
       ]
     }
-  },
-  "dependencies": {
-    "hashids": "^2.3.0"
   }
 }
