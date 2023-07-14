@@ -1,19 +1,10 @@
-/*
- * @fcodes/adonis-hashids
- *
- * (c) Okwukwe Ewurum <okwukwe.ewurum@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 declare module '@ioc:Adonis/Addons/LucidHashIds' {
   import Hashids from 'hashids'
   import { LucidModel } from '@ioc:Adonis/Lucid/Orm'
   import { NormalizeConstructor } from '@ioc:Adonis/Core/Helpers'
 
   export interface HashidsConfig {
-    salt: string
+    salt: string;
     alphabet: string
     minLength: number
   }
@@ -38,5 +29,5 @@ declare module '@ioc:Adonis/Addons/LucidHashIds' {
     }
   }
 
-  export const LucidHashIds: LucidHashIdsMixin
+  export  const LucidHashIds: LucidHashIdsMixin
 }

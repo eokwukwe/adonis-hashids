@@ -8,6 +8,7 @@ import { Application } from '@adonisjs/core/build/standalone'
 import { Adapter } from '@adonisjs/lucid/build/src/Orm/Adapter'
 import { BaseModel } from '@adonisjs/lucid/build/src/Orm/BaseModel'
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
+import { HashidsConfig } from '@ioc:Adonis/Addons/LucidHashIds'
 
 const fs = new Filesystem(join(__dirname, 'tmp'))
 
@@ -16,6 +17,12 @@ export const dbConfig: SqliteConfig = {
   connection: { filename: join(fs.basePath, 'db.sqlite3') },
   debug: false,
   useNullAsDefault: true,
+}
+
+export const hashidsConfig: HashidsConfig = {
+  salt: 'salt',
+  minLength: 12,
+  alphabet: 'abcdefghijklmnopqrstuvwxyz',
 }
 
 export function getDb() {
@@ -35,8 +42,6 @@ export async function setup() {
       table.timestamps(true)
     })
   }
-
-  console.log('setup done')
 }
 
 export async function cleanup() {
@@ -56,7 +61,12 @@ export function sleep(seconds: number) {
  * Setup application
  */
 export async function setupApplication(): Promise<ApplicationContract> {
-  await fs.add('.env', '')
+  await fs.add(
+    '.env',
+    `
+    APP_NAME=lucid-hashids
+    `
+  )
   await fs.add(
     'config/app.ts',
     `
@@ -69,18 +79,14 @@ export async function setupApplication(): Promise<ApplicationContract> {
   )
 
   await fs.add(
-    'config/database.ts',
-    `
-      const dbConfig = undefined
-      export default dbConfig
-    `
-  )
-
-  await fs.add(
     'config/hashids.ts',
     `
-      const hashidConfig = {}
-      export default hashidConfig
+      const hashidsConfig = {
+        salt: 'averylongsalt',
+        minLength: 8,
+        alphabet: '',
+      }
+      export default hashidsConfig
     `
   )
 

@@ -1,14 +1,13 @@
 import { test } from '@japa/runner'
-
+import { compose } from '@poppinss/utils/build/src/Helpers'
+import { column } from '@adonisjs/lucid/build/src/Orm/Decorators'
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
-import { setup, cleanup, setupApplication, getBaseModel } from '../test-helpers'
-// import { ModelQueryBuilder } from '@adonisjs/lucid/build/src/Orm/QueryBuilder'
-// import { column } from '@adonisjs/lucid/build/src/Orm/Decorators'
-// import { compose } from '@poppinss/utils/build/src/Helpers'
-// import { LucidModel } from '@ioc:Adonis/Lucid/Orm'
 
-let BaseModel: ReturnType<typeof getBaseModel>
+import getLucidHashIdsMixin from '../src/LucidHashIdsMixin'
+import { setup, cleanup, hashidsConfig, setupApplication, getBaseModel } from '../test-helpers'
+
 let app: ApplicationContract
+let BaseModel: ReturnType<typeof getBaseModel>
 
 test.group('LucidHashIds', (group) => {
   group.each.setup(async () => {
@@ -22,7 +21,29 @@ test.group('LucidHashIds', (group) => {
     await cleanup()
   })
 
-  test('check table is created', async ({ assert }) => {
-    assert.isTrue(true)
+  test('hashid is updated after record is created', async ({ assert }) => {
+    class TestModel extends compose(BaseModel, getLucidHashIdsMixin(hashidsConfig)) {
+      public static table = 'tests'
+
+      @column({ isPrimary: true })
+      public id: number
+
+      @column()
+      public name: string
+
+      @column()
+      public hashid: string
+    }
+
+    TestModel.boot()
+
+    const testData = await TestModel.create({ name: 'test' })
+
+    console.log(testData.hashid)
+
+    assert.exists(testData.hashid)
+    assert.isString(testData.hashid)
+    assert.isNotEmpty(testData.hashid)
+    assert.equal(TestModel.getId(testData.hashid), testData.id)
   })
 })

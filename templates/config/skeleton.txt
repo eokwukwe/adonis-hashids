@@ -1,7 +1,0 @@
-import { SkeletonConfig } from '@ioc:Skeleton'
-
-const skeletonConfig: SkeletonConfig = {
-  //
-}
-
-export default skeletonConfig
