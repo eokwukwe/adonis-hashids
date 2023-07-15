@@ -43,6 +43,8 @@ export default class User extends compose(BaseModel, LucidHashIds){
 
 The mixin will update the `hashid` column after the recorded is created using the `afterCreate` **Model** hook
 
+Also, if you are using `Route model binding` package, the `routeLookupKey` will be set to the `hashid` by default.
+
 [gh-workflow-image]: https://img.shields.io/github/actions/workflow/status/eokwukwe/adonis-hashids/test.yml?style=for-the-badge
 [gh-workflow-url]: https://github.com/eokwukwe/adonis-hashids/actions/workflows/test.yml "Github action"
 
